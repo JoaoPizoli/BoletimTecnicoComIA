@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Corpo da página */
+  body {
+    font-family: 'Arial', sans-serif; /* Uma fonte comum e legível */
+    background-color: #ffffff;
+    color: #333333; /* Cor de texto padrão um pouco mais suave que preto puro */
+    line-height: 1.6;
+  }
+
+  /* Configurações para impressão em PDF */
+  @page {
+    size: A4; /* Define o tamanho da página como A4 */
+    margin: 2cm 1.5cm; /* Margens: Superior/Inferior=2cm, Esquerda/Direita=1.5cm                                                                                                                                                              */
+  }
+
+  /* Cabeçalho (Capa) */
+  .capa {
+    background-color: #004080; /* Um azul corporativo escuro */
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 25px; /* Espaço após a capa */
+    border-bottom: 5px solid #002a53; /* Uma borda inferior sutilmente mais escu                                                                                                                                                             ra */
+  }
+  .capa .logo {
+    max-width: 160px; /* Tamanho da logo um pouco maior */
+    height: auto;
+    margin-bottom: 15px;
+  }
+  .capa h1 {
+    font-size: 28px; /* Tamanho do título principal */
+    margin-bottom: 8px;
+    font-weight: bold; /* Garante que o título seja negrito */
+  }
+  .capa p {
+    font-size: 16px; /* Tamanho da data */
+  }
+
+  /* Seção de Atualizações */
+  .atualizacoes {
+    margin: 0 auto 20px auto; /* Margens: topo=0, laterais=auto, inferior=20px *                                                                                                                                                             /
+    padding: 0; /* Removido padding lateral, pois @page já define margens */
+    max-width: 100%;
+  }
+  .atualizacoes h2 {
+    color: #004080; /* Mesma cor do cabeçalho da capa */
+    font-size: 22px;
+    margin-bottom: 20px; /* Mais espaço antes da tabela */
+    text-align: center;
+    border-bottom: 2px solid #004080;
+    padding-bottom: 8px; /* Espaço entre o texto e a borda */
+  }
+
+  /* Tabela de Módulos */
+  .modulos-table {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaços entre as bordas das células */
+    margin: 20px 0;
+    font-size: 10pt; /* Tamanho da fonte na tabela. Ajuste se necessário. 9pt ou                                                                                                                                                              10pt são comuns. */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil para a tabela */
+  }
+  .modulos-table th,
+  .modulos-table td {
+    border: 1px solid #cccccc;
+    padding: 10px 12px; /* Aumentado padding para mais respiro */
+    text-align: left;
+    vertical-align: middle; /* Alinha verticalmente ao meio, pode ser 'top' se p                                                                                                                                                             referir */
+    word-break: break-word;
+  }  .modulos-table th {
+    background-color: #e9eff5; /* Um tom de azul claro para os cabeçalhos da tabela */
+    color: #002a53; /* Cor de texto escura para contraste */
+    font-weight: bold;
+    text-transform: uppercase; /* Cabeçalhos em maiúsculas */
+    font-size: 9.5pt; /* Cabeçalho um pouco menor ou igual ao corpo da tabela */
+    padding: 4px 12px; /* Padding vertical reduzido para os cabeçalhos */
+  }
+  /* Larguras específicas para as colunas para melhor organização */
+  .modulos-table th:nth-child(1), /* Módulo */
+  .modulos-table td:nth-child(1) {
+    width: 22%;
+  }
+
+  .modulos-table th:nth-child(2), /* Data Anterior */
+  .modulos-table td:nth-child(2) {
+    width: 14%;
+    text-align: center;
+  }
+
+  .modulos-table th:nth-child(3), /* Data Nova */
+  .modulos-table td:nth-child(3) {
+    width: 14%;
+    text-align: center;
+  }
+
+  .modulos-table th:nth-child(4), /* Versão */
+  .modulos-table td:nth-child(4) {
+    width: 34%; /* Aumentado para dar mais espaço ao link */
+  }
+
+  .modulos-table th:nth-child(5), /* Link */
+  .modulos-table td:nth-child(5) {
+    width: 16%; /* Largura para a coluna de link */
+    text-align: center;
+  }
+
+  .modulos-table td a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold; /* Destaca o link "Acessar" */
+    padding: 4px 6px; /* Pequeno padding para o link parecer mais um botão */
+    border-radius: 3px; /* Bordas levemente arredondadas */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Tr                                                                                                                                                             ansição suave */
+  }
+  .modulos-table td a:hover {
+    text-decoration: none; /* Mantém sem sublinhado no hover */
+    background-color: #0056b3; /* Fundo do link no hover */
+    color: #ffffff; /* Texto do link branco no hover */
+  }
+
+  .nenhuma-atualizacao {
+    margin: 30px 0; /* Aumentada margem */
+    font-style: italic;
+    color: #555555; /* Cor um pouco mais escura */
+    text-align: center;
+    font-size: 16px; /* Tamanho da fonte */
+    padding: 25px; /* Padding aumentado */
+    background-color: #f8f9fa; /* Fundo muito claro */
+    border: 1px dashed #dddddd; /* Borda tracejada mais clara */
+    border-radius: 5px; /* Bordas arredondadas */
+  }
+
+
+  /* Rodapé */
+  .rodape {
+    background-color: #004080;
+    color: #ffffff;
+    text-align: center;
+    padding: 18px 20px; /* Padding um pouco maior */
+    margin-top: 40px; /* Mais espaço antes do rodapé */
+    font-size: 12px;
+    border-top: 3px solid #002a53; /* Borda superior sutilmente mais escura */
+  }
+  .rodape p {
+    margin: 0;
+  }
+
+  /* Responsividade (menos crítico para PDF, mas incluído do original) */
+  /* Para PDF, é mais sobre como o conteúdo flui na página A4. */
+  /* As larguras percentuais na tabela ajudam na adaptação à largura da página.                                                                                                                                                              */
+  /* As media queries podem não ter o mesmo efeito em PDF como em um navegador.                                                                                                                                                              */
+
+  /* Estilos de artigos e sumário foram removidos pois não estão no template.htm                                                                                                                                                             l fornecido */
+  /* Adicione-os de volta se forem necessários para outras partes do seu PDF. */

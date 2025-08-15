@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Meta viewport para melhorar a renderização em dispositivos móveis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ titulo_principal }}</title>
+  <style type="text/css">
+    /* Reset básico */
+    body, p, h1, h2, h3, h4, h5, h6, ul, li { margin: 0; padding: 0; }
+    body { background-color: #ffffff; font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
+
+    /* Estilos que não podem ser facilmente inlinados ou são condicionais (como @media) permanecem aqui. */
+    @page {
+      size: A4;
+      margin: 2cm;
+    }
+
+    @media (max-width: 820px) {
+      .capa { /* Esta regra ainda dependerá do suporte do cliente de e-mail para @media queries */
+        margin: 10px !important; /* !important pode ser necessário para sobrescrever inline styles em alguns casos com @media */
+        padding: 15px !important;
+      }
+      .capa h1 { /* Esta regra também */
+        font-size: 24px !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#ffffff;">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td align="center" style="padding: 20px;">
+        <!-- Container principal -->
+        <table border="0" cellpadding="0" cellspacing="0" width="800" style="border-collapse: collapse;">
+
+          <!-- Cabeçalho / Capa -->
+          <tr>
+            <td bgcolor="#004080" style="padding: 30px 15px;">
+              <!-- Bloco centralizado com largura definida; o bloco é centralizado, mas o conteúdo permanece à esquerda -->
+              <table border="0" cellpadding="0" cellspacing="0" width="600" style="margin: 0 auto; text-align: left;">
+                <tr>
+                  <td style="vertical-align: middle;">
+                    <img src="cid:logo@mococa.com" alt="Logo da Empresa" width="150" style="display:inline-block; vertical-align: middle; margin-right: 10px;">
+                  </td>
+                  <td style="vertical-align: middle;">
+                    <h1 style="margin:0; font-size:24px; color:#ffffff;">{{ titulo_principal }}</h1>
+                  </td>
+                </tr>
+              </table>
+              <!-- Data centralizada -->
+              <p style="margin-top:10px; text-align: center; font-size:16px; color:#ffffff;">Data: {{ data }}</p>
+            </td>
+          </tr>
+
+          <!-- Seção de Módulos Atualizados -->
+          <tr>
+            <td bgcolor="#ffffff" style="padding: 10px; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+              <h2 style="font-size:20px; color:#004080; margin-bottom:6px; font-family:Arial, sans-serif;">Módulos Atualizados</h2>
+              <p style="margin-bottom: 15px; text-align: justify; font-family:Arial, sans-serif; font-size:16px; color:#333;">Para abrir o link em uma nova guia, pressione Ctrl e clique sobre ele.</p>
+
+              {% if dados.modulos_atualizados %}              <table class="modulos-table" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                  <tr>
+                    <th style="border: 1px solid #ccc; padding: 10px; text-align: left; background-color: #f0f0f0; font-family:Arial, sans-serif;">Módulo</th>
+                    <th style="border: 1px solid #ccc; padding: 10px; text-align: left; background-color: #f0f0f0; font-family:Arial, sans-serif;">Data Anterior</th>
+                    <th style="border: 1px solid #ccc; padding: 10px; text-align: left; background-color: #f0f0f0; font-family:Arial, sans-serif;">Data Nova</th>
+                    <th style="border: 1px solid #ccc; padding: 10px; text-align: left; background-color: #f0f0f0; width: 30%; font-family:Arial, sans-serif;">Versão</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for mod in dados.modulos_atualizados %}
+                  <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px; text-align: left; font-family:Arial, sans-serif; color:#333;">{{ mod.modulo }}</td>
+                    <td style="border: 1px solid #ccc; padding: 10px; text-align: left; font-family:Arial, sans-serif; color:#333;">{{ mod.data_anterior }}</td>
+                    <td style="border: 1px solid #ccc; padding: 10px; text-align: left; font-family:Arial, sans-serif; color:#333;">{{ mod.data_nova }}</td>
+                    <td style="border: 1px solid #ccc; padding: 10px; text-align: left; width: 30%; font-family:Arial, sans-serif;"><a href="{{ mod.link }}" target="_blank" style="color: #0073e6; text-decoration: none;">{{ mod.versao }}</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              <p style="margin: 20px; font-style: italic; color: #666; font-family:Arial, sans-serif; font-size:16px;">Nenhum módulo foi atualizado ou os dados não estão disponíveis para esta emissão.</p>
+              {% endif %}
+            </td>
+          </tr>
+
+          <!-- Rodapé -->
+          <tr>
+            <td bgcolor="#004080" style="padding:10px; text-align:center;">
+              <p style="font-size:12px; color:#ffffff; font-family:Arial, sans-serif;">Boletim de Atualização Técnica - Metalúrgica Mococa S/A</p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- Fim do container principal -->
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
