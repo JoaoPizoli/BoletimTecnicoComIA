@@ -2,8 +2,6 @@
 
 Sistema automatizado para monitoramento e notificação de atualizações em módulos fiscais e documentos técnicos relevantes.
 
-![Logo Metalúrgica Mococa](./template/images/logo.png)
-
 ## 📋 Descrição
 
 O Boletim Técnico IA é uma ferramenta de automação que monitora atualizações em diversos módulos fiscais e técnicos (como CTe, NFe, ECD, NFCe, entre outros) relevantes para operações fiscais e contábeis. O sistema realiza web scraping nas fontes oficiais, identifica atualizações, gera relatórios em PDF e envia notificações por e-mail.
